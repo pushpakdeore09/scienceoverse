@@ -1,0 +1,48 @@
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 60px; 
+  left: 10px; 
+  bottom: 0;
+  border-radius: 5px; 
+  font-size: large;
+}
+
+.subcategory-item {
+  margin-bottom: 10px;
+}
+
+.dropdown-button {
+  padding: 10px;
+  font-size: 18px;
+  width: 90%; 
+  text-align: left;
+  cursor: pointer;
+  color: white;
+  border: none;
+  margin-bottom: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.subcategory-list {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.subcategory-list div {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.dropdown-button.selected {
+  color: #88bbfd;
+}
+
+
