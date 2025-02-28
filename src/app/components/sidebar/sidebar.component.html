@@ -1,14 +1,14 @@
 <div class="sidebar">
   <div *ngFor="let subCategory of getCategoryDetails()?.subCategories" class="subcategory-item">
     <div class="dropdown-button" (click)="toggleSubSubCategoryVisibility(subCategory)"
-    [class.selected]="subCategory === selectedSubCategory">
+    [class.selected]="subCategory === selectedSubCategoryValue">
       {{ subCategory.name }}
     </div>
 
-    <div *ngIf="subCategory === selectedSubCategory" class="subcategory-list">
+    <div *ngIf="subCategory === selectedSubCategoryValue" class="subcategory-list">
       <div *ngFor="let subSubCategory of subCategory.subSubCategories" 
-           (click)="onSubSubCategoryChange($event)"
-           [class.selected]="subSubCategory === selectedSubSubCategory">
+           (click)="onSubSubCategoryChange(subSubCategory)"
+           [class.selected]="subSubCategory === selectedSubSubCategoryValue">
         {{ subSubCategory }}
       </div>
     </div>

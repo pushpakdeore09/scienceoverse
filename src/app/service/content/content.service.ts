@@ -8,8 +8,10 @@ import { Observable } from 'rxjs';
 export class ContentService {
 
   constructor() { }
-
+  
   getHtmlContent(filepath: string): Promise<string> {
+    console.log('Loading content:', filepath);
+    
     return fetch(`/content/${filepath}.html`)
       .then((response) => {
         if (!response.ok) {

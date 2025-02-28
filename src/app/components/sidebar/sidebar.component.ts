@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ContentService } from '../../service/content/content.service';
+import { ContentComponent } from '../content/content.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,9 +12,12 @@ import { Component, Input } from '@angular/core';
 })
 export class SidebarComponent {
   @Input() selectedCategory!: string;
-
-  selectedSubCategory: any = null;
-  selectedSubSubCategory: string = '';
+  @Output() selectedSubCategory: EventEmitter<string> =
+    new EventEmitter<string>();
+  @Output() selectedSubSubCategory: EventEmitter<string> =
+    new EventEmitter<string>();
+  selectedSubCategoryValue: any = '';
+  selectedSubSubCategoryValue: any = '';
 
   categories = [
     {
@@ -63,24 +68,24 @@ export class SidebarComponent {
     );
   }
 
-  onSubCategoryChange(event: Event) {
-    const selectedSubCategoryName = (event.target as HTMLSelectElement).value;
-    this.selectedSubCategory =
-      this.getCategoryDetails()?.subCategories.find(
-        (subCategory) => subCategory.name === selectedSubCategoryName
-      ) || null;
-    this.selectedSubSubCategory = '';
+  onSubCategoryChange(subCategory: any) {
+    this.selectedSubCategoryValue = subCategory;
+    this.selectedSubCategory.emit(subCategory.name); 
+    this.selectedSubSubCategoryValue = '';
   }
-
-  onSubSubCategoryChange(event: Event) {
-    this.selectedSubSubCategory = (event.target as HTMLSelectElement).value;
+  
+  onSubSubCategoryChange(subSubCategory: string) {
+    this.selectedSubSubCategoryValue = subSubCategory;
+    this.selectedSubSubCategory.emit(subSubCategory); 
   }
+  
 
   toggleSubSubCategoryVisibility(subCategory: any) {
-    if (this.selectedSubCategory === subCategory) {
-      this.selectedSubCategory = null;
+    if (this.selectedSubCategoryValue === subCategory) {
+      this.selectedSubCategoryValue = null;
     } else {
-      this.selectedSubCategory = subCategory;
+      this.selectedSubCategoryValue = subCategory;
+      this.selectedSubCategory.emit(subCategory)
     }
   }
 }

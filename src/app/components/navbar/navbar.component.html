@@ -1,19 +1,29 @@
 <nav class="navbar">
-
-  <div class="arrow left-arrow" (click)="showPreviousCategories()" [class.disabled]="startIndex === 0">
+  <div
+    class="arrow left-arrow"
+    (click)="showPreviousCategories()"
+    [class.disabled]="startIndex === 0"
+  >
     <span>&larr;</span>
   </div>
 
-
   <ul class="nav-list">
     @for(category of visibleCategories; track category){
-    <li (click)="selectCategory(category)" class="nav-item" [class.selected]="category === selectedCategoryValue">
+    <li
+      (click)="selectCategory(category)"
+      class="nav-item"
+      [class.selected]="category === selectedCategoryValue"
+    >
       {{ category }}
     </li>
-  }
+    }
   </ul>
 
-  <div class="arrow right-arrow" (click)="showNextCategories()" [class.disabled]="startIndex + maxVisibleItems >= categories.length">
+  <div
+    class="arrow right-arrow"
+    (click)="showNextCategories()"
+    [class.disabled]="startIndex + maxVisibleItems >= categories.length"
+  >
     <span>&rarr;</span>
   </div>
 </nav>

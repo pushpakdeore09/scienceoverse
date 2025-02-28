@@ -9,7 +9,7 @@ import { ContentComponent } from './components/content/content.component';
   standalone: true,
   imports: [RouterOutlet, NavbarComponent, SidebarComponent, ContentComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   selectedCategory: any = null;
@@ -18,16 +18,16 @@ export class AppComponent {
 
   onCategorySelect(category: any) {
     this.selectedCategory = category;
-    this.selectedSubCategory = null;
-    this.selectedSubSubCategory = null;
+    console.log(this.selectedCategory);
   }
 
   onSubCategorySelected(subCategory: any) {
     this.selectedSubCategory = subCategory;
-    this.selectedSubSubCategory = null;
+    console.log(this.selectedSubCategory);
   }
 
   onSubSubCategorySelected(subSubCategory: any) {
     this.selectedSubSubCategory = subSubCategory;
+    console.log(this.selectedSubSubCategory);
   }
 }

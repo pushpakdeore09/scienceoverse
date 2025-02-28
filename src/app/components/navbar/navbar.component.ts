@@ -32,26 +32,23 @@ export class NavbarComponent {
   ];
 
   ngOnInit() {
-    this.updateVisibleCategories();  // Initialize the categories to display
+    this.updateVisibleCategories();  
   }
 
-  // Update the list of visible categories based on the current start index and max visible items
+
   updateVisibleCategories() {
     this.visibleCategories = this.categories.slice(this.startIndex, this.startIndex + this.maxVisibleItems);
   }
 
-  // Function to handle category selection
   selectCategory(category: string) {
     this.selectedCategoryValue = category;
     this.selectedCategory.emit(category);
   }
 
-  // Toggle function for the navbar (for collapsing or expanding)
   toggleNavbar() {
     this.isClosed = !this.isClosed; 
   }
 
-  // Go to the next set of categories when the right arrow is clicked
   showNextCategories() {
     if (this.startIndex + this.maxVisibleItems < this.categories.length) {
       this.startIndex += this.maxVisibleItems;
@@ -59,7 +56,6 @@ export class NavbarComponent {
     }
   }
 
-  // Go to the previous set of categories when the left arrow is clicked
   showPreviousCategories() {
     if (this.startIndex > 0) {
       this.startIndex -= this.maxVisibleItems;
