@@ -1,31 +1,45 @@
 .navbar {
-  background-color: #333;
-  padding: 10px 20px;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
   border-radius: 5px;
+}
+
+.arrow {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.left-arrow {
+  margin-right: 20px;
+}
+
+.right-arrow {
+  margin-left: 20px;
 }
 
 .nav-list {
-  list-style: none;
+  list-style-type: none;
   display: flex;
-  gap: 20px;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .nav-item {
-  color: white;
+  margin: 0 15px;
   cursor: pointer;
-  font-size: 16px;
-  padding: 5px 10px;
+  font-size: 18px;
 }
 
-.nav-item:hover {
-  background-color: #555;
-  border-radius: 5px;
-}
+
 .nav-item.selected {
-  color: #88bbfd; 
-  font-weight: bold; 
+  color: #88bbfd;  
+}
+
+.arrow.disabled {
+  color: gray;
+  cursor: not-allowed;
 }

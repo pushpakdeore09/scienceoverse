@@ -1,12 +1,19 @@
 <nav class="navbar">
-  <span class="nav-toggle left" (click)="toggleNavbar()"> </span>
-  <ul class="nav-list" [class.closed]="isClosed">
-    @for(category of categories; track category){
-    <li (click)="selectCategory(category)" class="nav-item"
-    [class.selected]="category === selectedCategoryValue">
+
+  <div class="arrow left-arrow" (click)="showPreviousCategories()" [class.disabled]="startIndex === 0">
+    <span>&larr;</span>
+  </div>
+
+
+  <ul class="nav-list">
+    @for(category of visibleCategories; track category){
+    <li (click)="selectCategory(category)" class="nav-item" [class.selected]="category === selectedCategoryValue">
       {{ category }}
     </li>
-    }
+  }
   </ul>
-  <span class="nav-toggle right" (click)="toggleNavbar()"> </span>
+
+  <div class="arrow right-arrow" (click)="showNextCategories()" [class.disabled]="startIndex + maxVisibleItems >= categories.length">
+    <span>&rarr;</span>
+  </div>
 </nav>

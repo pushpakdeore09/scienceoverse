@@ -1,4 +1,12 @@
 <div class="app">
   <app-navbar (selectedCategory)="onCategorySelect($event)"></app-navbar>
-  <app-sidebar [selectedCategory]="selectedCategory"></app-sidebar>
+  <app-sidebar
+    [selectedCategory]="selectedCategory"
+    (subCategorySelected)="onSubCategorySelected($event)"
+    (subSubCategorySelected)="onSubSubCategorySelected($event)"
+  ></app-sidebar>
+  <app-content
+      [selectedSubCategory]="selectedSubCategory"
+      [selectedSubSubCategory]="selectedSubSubCategory">
+  </app-content>
 </div>
