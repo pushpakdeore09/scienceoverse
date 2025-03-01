@@ -14,13 +14,6 @@ export class ContentComponent implements OnChanges {
   @Input() selectedSubSubCategory!: string;
   content: string = '';
 
-  images = [
-    
-    { url: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHVybHxlbnwwfHwwfHx8MA%3D%3D', altText: 'Image 3' },
-    { url: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHVybHxlbnwwfHwwfHx8MA%3D%3D', altText: 'Image 4' }
-  ];
-  
-
   constructor(private contentService: ContentService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
