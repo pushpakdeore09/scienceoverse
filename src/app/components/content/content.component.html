@@ -1,1 +1,7 @@
-<div class="content" [innerHTML]="content"></div>
+<div class="container">
+    <div class="content" [innerHTML]="content"></div>
+    <div class="image-gallery">
+      <img *ngFor="let image of images" [src]="image.url" [alt]="image.altText" />
+    </div>
+  </div>
+  

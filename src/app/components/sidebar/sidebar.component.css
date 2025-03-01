@@ -1,6 +1,6 @@
 .sidebar {
   width: 250px;
-  background-color: #333;
+  background-color: #808080;
   color: white;
   padding: 20px;
   border-radius: 5px;
@@ -31,6 +31,10 @@
   margin: 0;
 }
 
+.subcategory-list div.selected {
+  color: #00FFFF; 
+}
+
 .subcategory-list div {
   padding: 10px;
   font-size: 16px;
@@ -41,7 +45,7 @@
 }
 
 .dropdown-button.selected {
-  color: #88bbfd;
+  color: #00FFFF;
 }
 
 

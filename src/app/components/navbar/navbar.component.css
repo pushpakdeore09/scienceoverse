@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 15px 20px;
-  background-color: #333;
+  background-color: #808080;
   color: white;
   border-radius: 5px;
 }
@@ -36,10 +36,10 @@
 
 
 .nav-item.selected {
-  color: #88bbfd;  
+  color: #00FFFF;  
 }
 
 .arrow.disabled {
-  color: gray;
-  cursor: not-allowed;
+  color: black;
+  cursor: disabled;
 }

@@ -1,5 +1,32 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+  height: 100vh; 
+  gap: 20px;
+}
+
 .content {
-    visibility: visible !important;
-    color: white;  
-  }
-  
+  flex: 1;
+  color: white;
+}
+
+.image-gallery {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 200px; 
+  position: fixed; 
+  top: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 10; 
+}
+
+.image-gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
