@@ -1,0 +1,8 @@
+app-content {   
+  margin-left: 320px;
+  display: flex;
+  align-items: flex-start;
+  font-size: large;
+  padding-top: 10px;            
+  transform: translateY(-735px);  
+}

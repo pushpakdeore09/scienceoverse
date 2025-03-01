@@ -3,13 +3,12 @@
   background-color: #333;
   color: white;
   padding: 20px;
-  position: fixed;
-  top: 60px; 
-  left: 10px; 
-  bottom: 0;
-  border-radius: 5px; 
+  border-radius: 5px;
   font-size: large;
+  height: 100vh;
+  margin-top: 20px;
 }
+
 
 .subcategory-item {
   margin-bottom: 10px;
@@ -17,7 +16,7 @@
 
 .dropdown-button {
   padding: 10px;
-  font-size: 18px;
+  font-size: 17px;
   width: 90%; 
   text-align: left;
   cursor: pointer;

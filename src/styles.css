@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'CustomFont';  /* Name of the font */
+    src: url('assets/fonts/Handelson_Five.ttf') format('truetype'),
+         url('assets/fonts/Handelson_Five.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body {
+    background-color:#0f000d;
+    font-family: 'CustomFont', sans-serif;
+}
+  

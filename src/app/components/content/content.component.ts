@@ -11,34 +11,32 @@ import { CommonModule } from '@angular/common';
 })
 export class ContentComponent implements OnChanges {
   @Input() selectedSubCategory!: any;
-  @Input() selectedSubSubCategory!: any;
+  @Input() selectedSubSubCategory!: string;
   content: string = '';
 
   constructor(private contentService: ContentService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.selectedSubCategory || this.selectedSubSubCategory) {
-      this.loadContent();
+    if (changes['selectedSubCategory'] || changes['selectedSubSubCategory']) {
+      const subCategory = changes['selectedSubCategory']?.currentValue || 'No SubCategory Selected';
+      console.log("subcategory: " + subCategory);
+      
+      this.loadContent(); 
     }
   }
 
   loadContent() {
-    let filepath = '';
-    console.log('loading content');
-    
-    if (this.selectedSubCategory && !this.selectedSubSubCategory) {
-      filepath = `${this.selectedSubCategory.name.toLowerCase().replace(/\s/g, '')}`;
-    } else if (this.selectedSubCategory && this.selectedSubSubCategory) {
-      filepath = `${this.selectedSubSubCategory.toLowerCase().replace(/\s/g, '')}`;
-    }
+    const subCategoryName = this.selectedSubCategory ? this.selectedSubCategory.name : 'No SubCategory Selected';
+    const subSubCategoryName = this.selectedSubSubCategory ? this.selectedSubSubCategory : 'No SubSubCategory Selected';
   
-    if (filepath) {
-      console.log(filepath);
-      
-      this.contentService.getHtmlContent(filepath).then((htmlContent) => {
-        this.content = htmlContent; 
-      });
-    }
+    this.content = `
+      <div>
+        <h2>Selected Sub-Category:</h2>
+        <p>${subCategoryName}</p>
+        <h2>Selected Sub-Sub-Category:</h2>
+        <p>${subSubCategoryName}</p>
+      </div>
+    `;
   }
   
 }

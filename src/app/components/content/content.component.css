@@ -1,4 +1,5 @@
 .content {
-    margin-top: 50px;
-    margin-left: 400px;
-}
+    visibility: visible !important;
+    color: white;  
+  }
+  
