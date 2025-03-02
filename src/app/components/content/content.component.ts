@@ -20,15 +20,20 @@ export class ContentComponent implements OnChanges {
 
   constructor(private contentService: ContentService) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['selectedCategory']) {
+  ngOnInit(): void {
+    if(this.selectedCategory){
       this.loadCategoryResources();
     }
-    if (changes['selectedSubCategory']) {
-      this.loadSubCategoryResources();
-    }
-    if (changes['selectedSubSubCategory']) {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // Handle changes and update content accordingly
+    if (this.selectedSubSubCategory) {
       this.loadSubSubCategoryResources();
+    } else if (this.selectedSubCategory) {
+      this.loadSubCategoryResources();
+    } else if (this.selectedCategory) {
+      this.loadCategoryResources();
     }
   }
 

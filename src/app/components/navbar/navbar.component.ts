@@ -8,6 +8,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class NavbarComponent {
   @Output() selectedCategory: EventEmitter<string> = new EventEmitter<string>();
+  @Output() resetSubCategory: EventEmitter<void> = new EventEmitter<void>();
+  @Output() resetSubSubCategory: EventEmitter<void> = new EventEmitter<void>();
   selectedCategoryValue: string = '';
   isClosed = false;
 
@@ -32,7 +34,8 @@ export class NavbarComponent {
   ];
 
   ngOnInit() {
-    this.updateVisibleCategories();  
+    this.updateVisibleCategories();
+    this.selectCategory(this.visibleCategories[0]);  
   }
 
 
@@ -43,11 +46,10 @@ export class NavbarComponent {
   selectCategory(category: string) {
     this.selectedCategoryValue = category;
     this.selectedCategory.emit(category);
+    this.resetSubCategory.emit();
+    this.resetSubSubCategory.emit();
   }
 
-  toggleNavbar() {
-    this.isClosed = !this.isClosed; 
-  }
 
   showNextCategories() {
     if (this.startIndex + this.maxVisibleItems < this.categories.length) {

@@ -18,11 +18,13 @@ export class AppComponent {
 
   onCategorySelect(category: any) {
     this.selectedCategory = category;
-    
+    this.selectedSubCategory = '';
+    this.selectedSubSubCategory = '';
   }
   
   onSubCategorySelected(subCategory: any) {
     this.selectedSubCategory = subCategory;
+    this.selectedSubSubCategory = '';
   }
   
   onSubSubCategorySelected(subSubCategory: any) {
