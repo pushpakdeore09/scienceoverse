@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { ContentComponent } from './components/content/content.component';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { ContentComponent } from '../../components/content/content.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-content-page',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, SidebarComponent, ContentComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  imports: [NavbarComponent, SidebarComponent, ContentComponent],
+  templateUrl: './content-page.component.html',
+  styleUrl: './content-page.component.css'
 })
-export class AppComponent {
+export class ContentPageComponent {
+
   selectedCategory: string = '';
   selectedSubCategory: string = '';
   selectedSubSubCategory: string = '';
@@ -30,5 +30,4 @@ export class AppComponent {
   onSubSubCategorySelected(subSubCategory: any) {
     this.selectedSubSubCategory = subSubCategory;
   }
-  
 }

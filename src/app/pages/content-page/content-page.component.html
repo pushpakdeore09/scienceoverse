@@ -1,0 +1,15 @@
+<app-navbar (selectedCategory)="onCategorySelect($event)"></app-navbar>
+<app-sidebar
+  [selectedCategory]="selectedCategory"
+  (selectedSubCategory)="onSubCategorySelected($event)"
+  (selectedSubSubCategory)="onSubSubCategorySelected($event)"
+></app-sidebar>
+
+<app-content
+  *ngIf="!isNewPage"
+  [selectedCategory]="selectedCategory"
+  [selectedSubCategory]="selectedSubCategory"
+  [selectedSubSubCategory]="selectedSubSubCategory"
+>
+</app-content>
+<a routerLink="/events">Go to Event page</a>

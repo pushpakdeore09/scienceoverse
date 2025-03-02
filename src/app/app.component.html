@@ -1,13 +1,5 @@
 <div class="app">
-  <app-navbar (selectedCategory)="onCategorySelect($event)"></app-navbar>
-  <app-sidebar
-    [selectedCategory]="selectedCategory"
-    (selectedSubCategory)="onSubCategorySelected($event)"
-    (selectedSubSubCategory)="onSubSubCategorySelected($event)"
-  ></app-sidebar>
-  <app-content
-    [selectedCategory]="selectedCategory"
-    [selectedSubCategory]="selectedSubCategory"
-    [selectedSubSubCategory]="selectedSubSubCategory">
-  </app-content>
+  <router-outlet></router-outlet>
+
 </div>
+

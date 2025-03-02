@@ -1,0 +1,124 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+  width: 100%; 
+}
+
+.container {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
+  width: 100%;
+  padding: 10px; 
+  flex-direction: column; 
+  box-sizing: border-box; 
+}
+
+h1 {
+  color: white;
+  margin-top: 20px; 
+  font-size: 2rem; 
+  font-weight: bold;
+  margin-bottom: 20px; 
+  text-align: center; 
+  margin-left: 10px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 20px; 
+  width: 100%;
+  max-width: 100vw; 
+  padding: 0 10px; 
+  box-sizing: border-box; 
+}
+
+.card {
+  background-color: #333; 
+  color: white; 
+  border-radius: 8px; 
+  width: 310px; 
+  height: auto; 
+  overflow: hidden; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  margin: 0 auto; 
+  box-sizing: border-box; 
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-container {
+    width: 100%;  
+    padding: 7px;  
+    border-radius: 5px; 
+    overflow: hidden; 
+    box-sizing: border-box;  
+  }
+  
+  .card-image {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover;  
+    border: 2px solid cyan; 
+    border-radius: 5px;  
+    padding: 0;  
+  }
+  
+
+.card-content {
+  padding: 15px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  flex-grow: 1; 
+}
+
+.card-info {
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.card-date {
+  font-size: 1rem;
+  color: #f1c40f;
+  white-space: wrap; 
+}
+
+.card-text {
+  font-size: 1rem; 
+  color: white; 
+  display: inline-block; 
+  flex-grow: 1;
+}
+
+.card-divider {
+  width: 100%; 
+  height: 1px; 
+  background-color: black; 
+  margin-top: 10px; 
+  margin-bottom: 10px;
+}
+
+.card-register {
+    display: flex;
+    justify-content: center;  
+    width: 100%;  
+    margin-top: 5px;  
+  }
+  
+  .register-button {
+    background-color: red; 
+    color: white;  
+    font-size: 1rem;
+    padding: 5px 5px; 
+    border: none;
+    border-radius: 50px;  
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+  }

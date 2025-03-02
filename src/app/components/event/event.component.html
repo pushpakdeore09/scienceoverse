@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>Upcoming Events</h1>
+    <div class="card-container">
+      <div *ngFor="let event of events" class="card">
+        <div class="card-image-container">
+          <img src="https://images.unsplash.com/photo-1598449356475-b9f71db7d847?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG9yaXpvbnRhbHxlbnwwfHwwfHx8MA%3D%3D" alt="Event Image" class="card-image"/>
+        </div>
+        
+        <div class="card-content">
+          <div class="card-info">
+            <div class="card-date">{{ event.date }}</div>
+            <div class="card-text">{{ event.text }}</div>
+          </div>
+          <div class="card-divider"></div> 
+          <div class="card-register">
+            <button class="register-button">Register</button> 
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h1>Completed Events</h1>
+    <div class="card-container">
+      <div *ngFor="let event of events" class="card">
+        <div class="card-image-container">
+          <img src="https://images.unsplash.com/photo-1598449356475-b9f71db7d847?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG9yaXpvbnRhbHxlbnwwfHwwfHx8MA%3D%3D" alt="Event Image" class="card-image"/>
+        </div>
+        
+        <div class="card-content">
+          <div class="card-info">
+            <div class="card-date">{{ event.date }}</div>
+            <div class="card-text">{{ event.text }}</div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  
