@@ -21,7 +21,7 @@ export class SidebarComponent {
 
   categories = [
     {
-      name: 'Artificial Intelligence (AI)',
+      name: 'Artificial Intelligence',
       subCategories: [
         {
           name: 'Natural Language Processing',
@@ -35,7 +35,7 @@ export class SidebarComponent {
       ],
     },
     {
-      name: 'Machine Learning (ML)',
+      name: 'Machine Learning',
       subCategories: [
         {
           name: 'Supervised Learning',

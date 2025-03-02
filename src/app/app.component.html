@@ -6,6 +6,7 @@
     (selectedSubSubCategory)="onSubSubCategorySelected($event)"
   ></app-sidebar>
   <app-content
+    [selectedCategory]="selectedCategory"
     [selectedSubCategory]="selectedSubCategory"
     [selectedSubSubCategory]="selectedSubSubCategory">
   </app-content>

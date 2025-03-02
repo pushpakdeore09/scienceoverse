@@ -16,8 +16,8 @@ export class NavbarComponent {
   maxVisibleItems: number = 9;  
 
   categories = [
-    'Artificial Intelligence (AI)',
-    'Machine Learning (ML)',
+    'Artificial Intelligence',
+    'Machine Learning',
     'Robotics',
     'Aerospace',
     'Astronomy',

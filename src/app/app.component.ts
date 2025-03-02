@@ -12,19 +12,21 @@ import { ContentComponent } from './components/content/content.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  selectedCategory: any = null;
-  selectedSubCategory: any = null;
-  selectedSubSubCategory: any = null;
+  selectedCategory: string = '';
+  selectedSubCategory: string = '';
+  selectedSubSubCategory: string = '';
 
   onCategorySelect(category: any) {
     this.selectedCategory = category;
+    
   }
-
+  
   onSubCategorySelected(subCategory: any) {
     this.selectedSubCategory = subCategory;
   }
-
+  
   onSubSubCategorySelected(subSubCategory: any) {
     this.selectedSubSubCategory = subSubCategory;
   }
+  
 }
