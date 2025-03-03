@@ -12,6 +12,8 @@ import {Event} from '../../models/event.model';
 })
 export class EventComponent {
 
+  displayShareButton: boolean = true;
+
   constructor (private eventService: EventService) {}
 
   events: Event[] = [];

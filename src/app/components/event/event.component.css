@@ -54,6 +54,7 @@ h1 {
 }
 
 .card-image-container {
+  position: relative;
   width: 100%;  
   padding: 7px;  
   border-radius: 5px; 
@@ -112,14 +113,27 @@ h1 {
   display: flex;
   justify-content: center;  
   width: 100%;  
-  margin-top: 10px;  
+  margin-top: 5px; 
+  gap: 20px; 
+}
+
+
+
+.share-button {
+  background-color: cyan;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  font-size: 14px;
 }
 
 .register-button {
   background-color: red; 
   color: white;  
-  font-size: 1rem;
-  padding: 5px 10px; 
+  font-size: 14px;
+  padding: 8px 10px;
   border: none;
   border-radius: 50px;  
   cursor: pointer;
@@ -128,4 +142,31 @@ h1 {
 
 .register-button:hover {
   background-color: darkred;
+}
+
+.free-label {
+  position: absolute;
+  top: 3px;
+  right: -20px;
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent; 
+  border-right: 40px solid transparent; 
+  border-bottom: 40px solid red; 
+  transform: rotate(45deg); 
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+
+.label-text {
+  position: relative;
+  top: 24px;
 }
