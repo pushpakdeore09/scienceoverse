@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ContentService } from '../../service/content/content.service';
 import { CommonModule } from '@angular/common';
 import { Resource } from '../../models/resource.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-content',
@@ -18,7 +19,7 @@ export class ContentComponent implements OnChanges {
   resources: Resource[] = [];
   resourceData: Resource | null = null;
 
-  constructor(private contentService: ContentService) {}
+  constructor(private contentService: ContentService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     if(this.selectedCategory){
@@ -27,7 +28,6 @@ export class ContentComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // Handle changes and update content accordingly
     if (this.selectedSubSubCategory) {
       this.loadSubSubCategoryResources();
     } else if (this.selectedSubCategory) {
@@ -86,7 +86,9 @@ export class ContentComponent implements OnChanges {
 
   loadContent() {
     if (this.resourceData) {
-      this.content = this.resourceData.description;
+      console.log(this.resourceData);
+      
+      this.content = this.resourceData.description
     } else {
       this.content = '<h1>No Content Available</h1>';
     }

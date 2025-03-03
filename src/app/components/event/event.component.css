@@ -35,6 +35,7 @@ h1 {
   max-width: 100vw; 
   padding: 0 10px; 
   box-sizing: border-box; 
+  align-items: stretch; 
 }
 
 .card {
@@ -42,32 +43,32 @@ h1 {
   color: white; 
   border-radius: 8px; 
   width: 310px; 
-  height: auto; 
+  min-height: 250px; 
   overflow: hidden; 
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
   margin: 0 auto; 
   box-sizing: border-box; 
   display: flex;
   flex-direction: column;
+  justify-content: space-between; 
 }
 
 .card-image-container {
-    width: 100%;  
-    padding: 7px;  
-    border-radius: 5px; 
-    overflow: hidden; 
-    box-sizing: border-box;  
-  }
-  
-  .card-image {
-    width: 100%; 
-    height: auto; 
-    object-fit: cover;  
-    border: 2px solid cyan; 
-    border-radius: 5px;  
-    padding: 0;  
-  }
-  
+  width: 100%;  
+  padding: 7px;  
+  border-radius: 5px; 
+  overflow: hidden; 
+  box-sizing: border-box;  
+}
+
+.card-image {
+  width: 100%; 
+  height: auto; 
+  object-fit: cover;  
+  border: 2px solid cyan; 
+  border-radius: 5px;  
+  padding: 0;  
+}
 
 .card-content {
   padding: 15px; 
@@ -80,45 +81,51 @@ h1 {
 .card-info {
   display: flex; 
   flex-direction: row; 
-  align-items: center; 
-  gap: 10px; 
+  align-items: flex-start; 
+  gap: 5px; 
+  flex-grow: 1; 
 }
 
 .card-date {
   font-size: 1rem;
   color: #f1c40f;
-  white-space: wrap; 
+  white-space: normal; 
+  word-wrap: break-word;
 }
 
 .card-text {
   font-size: 1rem; 
   color: white; 
-  display: inline-block; 
+  display: block; 
   flex-grow: 1;
+  margin-bottom: 15px;
 }
 
 .card-divider {
   width: 100%; 
-  height: 1px; 
+  height: .1rem; 
   background-color: black; 
-  margin-top: 10px; 
-  margin-bottom: 10px;
+  margin-top: auto; 
 }
 
 .card-register {
-    display: flex;
-    justify-content: center;  
-    width: 100%;  
-    margin-top: 5px;  
-  }
-  
-  .register-button {
-    background-color: red; 
-    color: white;  
-    font-size: 1rem;
-    padding: 5px 5px; 
-    border: none;
-    border-radius: 50px;  
-    cursor: pointer;
-    transition: background-color 0.3s ease; 
-  }
+  display: flex;
+  justify-content: center;  
+  width: 100%;  
+  margin-top: 10px;  
+}
+
+.register-button {
+  background-color: red; 
+  color: white;  
+  font-size: 1rem;
+  padding: 5px 10px; 
+  border: none;
+  border-radius: 50px;  
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+.register-button:hover {
+  background-color: darkred;
+}

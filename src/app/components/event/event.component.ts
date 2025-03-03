@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { EventService } from '../../service/event/event.service';
+import {Event} from '../../models/event.model';
 
 @Component({
   selector: 'app-event',
@@ -10,26 +12,28 @@ import { Component } from '@angular/core';
 })
 export class EventComponent {
 
-  events = [
-    {
-      image: 'https://via.placeholder.com/400x200', 
-      date: 'Mar 15',  
-      text: 'Exciting webinar on technology innovations!'
-    },
-    {
-      image: 'https://via.placeholder.com/400x200', 
-      date: 'Mar 20',
-      text: 'Join our online tech competition!'
-    },
-    {
-      image: 'https://via.placeholder.com/400x200', 
-      date: 'Mar 25',
-      text: 'Free coding workshop on data science.'
-    },
-    {
-      image: 'https://via.placeholder.com/400x200', 
-      date: 'Mar 30',
-      text: 'Digital marketing training session.'
-    }
-  ];
+  constructor (private eventService: EventService) {}
+
+  events: Event[] = [];
+  eventsData: Event | null = null;
+
+  ngOnInit(): void {
+    this.loadEvents();
+  }
+
+  loadEvents(): void {
+    this.eventService.getEvents().subscribe({
+      next: (events: Event[]) => {
+        this.events = events;  
+        console.log('Events fetched successfully:', this.events);
+
+      },
+      error: (error) => {
+        console.error('Error fetching events:', error);  
+      },
+      complete: () => {
+        console.log('Event fetching completed.');
+      }
+    });
+  }
 }
