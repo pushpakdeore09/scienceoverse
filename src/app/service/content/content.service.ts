@@ -12,8 +12,8 @@ export class ContentService {
 
   constructor(private http: HttpClient) { }
   
-  addResource(resource: any) {
-    return this.http.post(this.url + '/add-resource', { resource });
+  addResource(resource: Resource) {
+    return this.http.post(this.url + '/add-resource', resource);
   }
 
   getCategoryResources(category: string): Observable<Resource[]>{
