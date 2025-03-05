@@ -2,8 +2,9 @@
   <app-navbar (selectedCategory)="onCategorySelect($event)"></app-navbar>
   <app-sidebar
     [selectedCategory]="selectedCategory"
-    (selectedSubCategory)="onSubCategorySelected($event)"
-    (selectedSubSubCategory)="onSubSubCategorySelected($event)"
+    [selectedSubCategory]="selectedSubCategory"
+    (selectedSubCategoryChange)="onSubCategorySelected($event)"
+    (selectedSubSubCategoryChange)="onSubSubCategorySelected($event)"
   ></app-sidebar>
 
   <app-content

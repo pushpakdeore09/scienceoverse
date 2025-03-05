@@ -1,7 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { ContentService } from '../../service/content/content.service';
 import { ContentComponent } from '../content/content.component';
+import { Resource } from '../../models/resource.model';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,80 +19,72 @@ import { ContentComponent } from '../content/content.component';
 })
 export class SidebarComponent {
   @Input() selectedCategory!: string;
-  @Output() selectedSubCategory: EventEmitter<string> =
+  @Input() selectedSubCategory!: string;
+  @Output() selectedSubCategoryChange: EventEmitter<string> =
     new EventEmitter<string>();
-  @Output() selectedSubSubCategory: EventEmitter<string> =
+  @Output() selectedSubSubCategoryChange: EventEmitter<string> =
     new EventEmitter<string>();
+  @Input() resourceData: Resource | null = null;
+  @Input() subResourceData: Resource | null = null;
   selectedSubCategoryValue: any = '';
   selectedSubSubCategoryValue: any = '';
 
-  categories = [
-    {
-      name: 'Artificial Intelligence',
-      subCategories: [
-        {
-          name: 'Natural Language Processing',
-          subSubCategories: ['Speech Recognition', 'Text Analytics'],
-        },
-        {
-          name: 'Computer Vision',
-          subSubCategories: ['Image Processing', 'Object Detection'],
-        },
-        { name: 'AI Ethics', subSubCategories: ['Bias', 'Privacy'] },
-      ],
-    },
-    {
-      name: 'Machine Learning',
-      subCategories: [
-        {
-          name: 'Supervised Learning',
-          subSubCategories: ['Classification', 'Regression'],
-        },
-        {
-          name: 'Unsupervised Learning',
-          subSubCategories: ['Clustering', 'Dimensionality Reduction'],
-        },
-      ],
-    },
-    {
-      name: 'Robotics',
-      subCategories: [
-        {
-          name: 'Industrial Robots',
-          subSubCategories: ['Manufacturing', 'Assembly'],
-        },
-        {
-          name: 'Autonomous Robots',
-          subSubCategories: ['Self-driving Cars', 'Drones'],
-        },
-      ],
-    },
-  ];
+  constructor(private contentService: ContentService) {}
+
+  
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.selectedCategory) {
+      this.getCategoryDetails();
+    }
+
+    if (this.selectedSubCategory) {
+      this.getSubCategoryDetails();
+    }
+  }
 
   getCategoryDetails() {
-    return this.categories.find(
-      (category) => category.name === this.selectedCategory
-    );
+    
+    this.contentService
+      .getCategoryResources(this.selectedCategory)
+      .subscribe((data: Resource[]) => {
+        this.resourceData = data.length ? data[0] : null;
+      });
+  }
+
+  getSubCategoryDetails() {
+
+    this.contentService
+      .getSubCategoryResources(this.selectedSubCategory)
+      .subscribe((data: Resource[]) => {
+        this.subResourceData = data.length ? data[0] : null;
+        console.log(this.subResourceData);
+      });
   }
 
   onSubCategoryChange(subCategory: any) {
+    console.log(subCategory);
+    
     this.selectedSubCategoryValue = subCategory;
-    this.selectedSubCategory.emit(subCategory.name); 
+    this.selectedSubCategoryChange.emit(subCategory);
     this.selectedSubSubCategoryValue = '';
   }
-  
+
   onSubSubCategoryChange(subSubCategory: string) {
     this.selectedSubSubCategoryValue = subSubCategory;
-    this.selectedSubSubCategory.emit(subSubCategory); 
+    this.selectedSubSubCategoryChange.emit(subSubCategory);
   }
-  
 
   toggleSubSubCategoryVisibility(subCategory: any) {
     if (this.selectedSubCategoryValue === subCategory) {
       this.selectedSubCategoryValue = null;
     } else {
       this.selectedSubCategoryValue = subCategory;
-      this.selectedSubCategory.emit(subCategory)
+      this.selectedSubCategoryChange.emit(subCategory);
     }
+  }
+
+  updateResourceData(resourceData: Resource) {
+    this.resourceData = resourceData;
   }
 }

@@ -1,15 +1,15 @@
 <div class="sidebar">
-  <div *ngFor="let subCategory of getCategoryDetails()?.subCategories" class="subcategory-item">
-    <div class="dropdown-button" (click)="toggleSubSubCategoryVisibility(subCategory)"
-    [class.selected]="subCategory === selectedSubCategoryValue">
-      {{ subCategory.name }}
+  <div *ngFor="let subResource of resourceData?.subResources" class="subcategory-item">
+    <div class="dropdown-button" (click)="toggleSubSubCategoryVisibility(subResource)"
+    [class.selected]="subResource === selectedSubCategoryValue">
+      {{ subResource }}
     </div>
 
-    <div *ngIf="subCategory === selectedSubCategoryValue" class="subcategory-list">
-      <div *ngFor="let subSubCategory of subCategory.subSubCategories" 
-           (click)="onSubSubCategoryChange(subSubCategory)"
-           [class.selected]="subSubCategory === selectedSubSubCategoryValue">
-        {{ subSubCategory }}
+    <div *ngIf="subResource === selectedSubCategoryValue" class="subcategory-list">
+      <div *ngFor="let subSubResource of subResourceData?.subResources" 
+           (click)="onSubSubCategoryChange(subSubResource)"
+           [class.selected]="subSubResource === selectedSubSubCategoryValue">
+        {{ subSubResource }}
       </div>
     </div>
   </div>

@@ -1,4 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { ContentService } from '../../service/content/content.service';
 import { CommonModule } from '@angular/common';
 import { Resource } from '../../models/resource.model';
@@ -13,16 +20,20 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ContentComponent implements OnChanges {
   @Input() selectedCategory: string = '';
-  @Input() selectedSubCategory: any = null;
+  @Input() selectedSubCategory: string = '';
   @Input() selectedSubSubCategory: string = '';
+  @Output() resourceDataChange: EventEmitter<Resource> =
+    new EventEmitter<Resource>();
   content: string = '';
   resources: Resource[] = [];
   resourceData: Resource | null = null;
 
-  constructor(private contentService: ContentService, private sanitizer: DomSanitizer) {}
+  constructor(
+    private contentService: ContentService,
+  ) {}
 
   ngOnInit(): void {
-    if(this.selectedCategory){
+    if (this.selectedCategory) {
       this.loadCategoryResources();
     }
   }
@@ -56,14 +67,15 @@ export class ContentComponent implements OnChanges {
   loadSubCategoryResources() {
     if (this.selectedSubCategory) {
       this.contentService
-        .getSubCategoryResources(this.selectedSubCategory.name)
+        .getSubCategoryResources(this.selectedSubCategory)
         .subscribe((resources: Resource[]) => {
           this.resources = resources;
           this.resourceData =
             this.resources.find(
-              (resource) => resource.resource === this.selectedSubCategory.name
+              (resource) => resource.resource === this.selectedSubCategory
             ) ?? null;
-
+            console.log(this.resourceData);
+            
           this.loadContent();
         });
     }
@@ -86,11 +98,12 @@ export class ContentComponent implements OnChanges {
 
   loadContent() {
     if (this.resourceData) {
-      console.log(this.resourceData);
-      
-      this.content = this.resourceData.description
+
+      this.content = this.resourceData.description;
     } else {
       this.content = '<h1>No Content Available</h1>';
     }
   }
+
+ 
 }
