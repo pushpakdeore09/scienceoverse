@@ -4,23 +4,33 @@ import { Certificate } from '../models/certificate.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CertificateService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  url = 'http://localhost:8080/api';
 
-  url = 'http://localhost:8080/api'
-
-  addCertificate(certificate: Certificate): Observable<any>{
-    return this.http.post(this.url + "/add-certificate", certificate);
+  addCertificate(certificate: Certificate): Observable<any> {
+    return this.http.post(this.url + '/add-certificate', certificate);
   }
 
-  deleteCertificate(username: string, certificateId: string){
-    return this.http.delete(this.url + "/delete-certificate/" + username + "/" + certificateId);
+  deleteCertificate(username: string, certificateId: string) {
+    return this.http.delete(
+      this.url + '/delete-certificate/' + username + '/' + certificateId
+    );
   }
 
-  updateCertificate(certificate: Certificate){
-    this.http.put(this.url + "/update-certificate", certificate);
+  updateCertificate(certificate: Certificate) {
+    return this.http.put(this.url + '/update-certificate', certificate);
+  }
+
+  getCertificate(
+    username: string,
+    certificateId: string
+  ): Observable<Certificate> {
+    return this.http.get<Certificate>(
+      this.url + '/get-certificate/' + username + '/' + certificateId
+    );
   }
 }

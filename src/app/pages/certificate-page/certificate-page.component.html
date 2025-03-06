@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="certificate-fields">
+      <label for="certificateName">Username</label>
+      <input
+        id="certificateName"
+        type="text"
+        (input)="onUsernameChange($event)"
+      />
+  
+      <label for="certificateDate">Certificate Id</label>
+      <input
+        id="certificateDate"
+        type="text"
+        (input)="onCertificateIdChange($event)"
+      />
+    </div>
+    <div *ngIf="certificate">
+      <div class="remarks">
+        <h3>Remarks:</h3>
+        <p>{{ certificate.remark }}</p>
+      </div>
+      <div class="issued-by">
+        <span>Issued By: {{ certificate.issuedBy }}</span>
+      </div>
+      <div class="image-container">
+        <img [src]="certificate.imageUrl" alt="Certificate Image" />
+      </div>
+    </div>
+    <div class="submit-section">
+      <button (click)="getCertificate()">Get Certificate</button>
+    </div>
+  </div>
+  
