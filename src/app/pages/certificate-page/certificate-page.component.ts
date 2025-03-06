@@ -13,8 +13,8 @@ import { CertificateService } from '../../service/certificate.service';
 export class CertificatePageComponent {
   certificate: Certificate | undefined;
 
-  username: string = '';
-  certificateId: string = '';
+  username: string = 'Dirghayu';
+  certificateId: string = '01';
 
   constructor(private certificateService: CertificateService) {}
 

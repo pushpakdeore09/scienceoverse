@@ -8,32 +8,6 @@
     position: relative;
   }
   
-  .certificate-fields {
-    margin-bottom: 20px;
-  }
-  
-  .certificate-fields label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: white;
-  }
-  
-  .certificate-fields input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    color: black
-  }
-  
-  .certificate-fields input:focus {
-    border-color: #2a3d7f;
-    outline: none;
-  }
-  
   .remarks {
     margin-bottom: 20px;
     font-size: 16px;
