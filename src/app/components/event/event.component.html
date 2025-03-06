@@ -29,7 +29,7 @@
     </ng-container>
   </div>
 
-  <h1>Completed Events</h1>
+  <h1>Competition</h1>
   <div class="card-container">
     <ng-container *ngFor="let event of events">
       <div *ngIf="event.type === 'completed'" class="card">
@@ -53,4 +53,28 @@
       </div>
     </ng-container>
   </div>
+
+  <h1>Career</h1>
+  <div class="card-container">
+    <ng-container *ngFor="let event of events">
+      <div *ngIf="event.type === 'completed'" class="card">
+        <div class="card-image-container">
+          
+          <img
+            src="https://images.unsplash.com/photo-1598449356475-b9f71db7d847?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG9yaXpvbnwwfHwwfHx8MA%3D%3D"
+            alt="Event Image"
+            class="card-image"
+          />
+          
+        </div>
+        <div class="card-content">
+          <div class="card-info">
+            <div class="card-date">{{ event.date }}</div>
+            <div class="card-text">{{ event.title }}</div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
 </div>
+

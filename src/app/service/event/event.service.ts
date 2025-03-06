@@ -16,8 +16,8 @@ export class EventService {
     return this.http.get<Event[]>(this.url + "/get-all-events");
   }
 
-  addEvent(event: Event){
-    this.http.post(this.url + "/add-event", event);
+  addEvent(event: Event): Observable<any>{
+    return this.http.post(this.url + "/add-event", event);
   }
 
   updateEvent(event: Event){

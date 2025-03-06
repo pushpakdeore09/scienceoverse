@@ -11,6 +11,13 @@ import {Event} from '../../models/event.model';
   styleUrl: './event.component.css'
 })
 export class EventComponent {
+  name: string = '';
+  username: string = '';
+  title: string = '';
+  is_Paid_Free: boolean = true;
+  type: string = '';
+  image: string = '';
+  date: string = '';
 
   displayShareButton: boolean = true;
 
