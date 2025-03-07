@@ -1,5 +1,9 @@
 <div class="app">
+  <div *ngIf="showPopup" class="popup-overlay">
+    <div class="popup-content">
+      <p>For better viewing, go to desktop version.</p>
+      <button (click)="closePopup()">OK</button>
+    </div>
+  </div>
   <router-outlet></router-outlet>
-
 </div>
-
