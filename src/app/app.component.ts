@@ -21,9 +21,6 @@ export class AppComponent {
   }
 
   checkViewPortSize(){
-
-    const viewportWidth = window.innerWidth;
-    console.log('Viewport width:', viewportWidth, 'px'); 
     if(window.innerWidth < 768){
       this.showPopup = true;
     }
