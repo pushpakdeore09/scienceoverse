@@ -30,6 +30,15 @@
             <button *ngIf="displayShareButton" class="share-button">
               Share
             </button>
+
+            <i
+              [ngClass]="
+                isLiked(event) ? 'fas fa-heart text-red-500' : 'far fa-heart'
+              "
+              (click)="toggleLike(event)"
+              class="cursor-pointer text-2xl"
+            ></i>
+
             <button class="register-button">Register</button>
           </div>
         </div>
@@ -71,6 +80,22 @@
             <div class="card-date">{{ event.date }}</div>
             <div class="card-text">{{ event.title }}</div>
           </div>
+          <div class="card-divider"></div>
+          <div class="card-register">
+            <button *ngIf="displayShareButton" class="share-button">
+              Share
+            </button>
+
+            <i
+              [ngClass]="
+                isLiked(event) ? 'fas fa-heart text-red-500' : 'far fa-heart'
+              "
+              (click)="toggleLike(event)"
+              class="cursor-pointer text-2xl"
+            ></i>
+
+            <button class="register-button">Register</button>
+          </div>
         </div>
       </div>
     </div>
@@ -109,6 +134,14 @@
           <div class="card-info">
             <div class="card-date">{{ event.date }}</div>
             <div class="card-text">{{ event.title }}</div>
+          </div>
+          <div class="card-divider"></div>
+          <div class="card-register">
+            <button *ngIf="displayShareButton" class="share-button">
+              Share
+            </button>
+
+            <button class="register-button">Register</button>
           </div>
         </div>
       </div>

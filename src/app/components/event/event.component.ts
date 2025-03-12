@@ -28,10 +28,14 @@ export class EventComponent {
     career: [],
   };
 
+  email: string = 'dirghayurami52@gmail.com';
+  currentUser: string = '';
+
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {
     this.loadEvents();
+    this.login(this.email);
   }
 
   loadEvents(): void {
@@ -77,5 +81,47 @@ export class EventComponent {
       this.currentIndex[category]--;
       this.updateVisibleEvents(category);
     }
+  }
+
+  login(email: string): void {
+    this.eventService.login(email).subscribe({
+      next: (response) => {
+        console.log('Login successful:', response);
+        
+        const username = response.username;
+        this.currentUser = username; 
+        const userData = {
+          username: username,
+          likedPosts: [] 
+        };
+  
+        localStorage.setItem(username, JSON.stringify(userData));
+  
+        console.log('User data stored in localStorage:', userData);
+      },
+      error: (error) => {
+        console.error('Error logging in:', error);
+      }
+    });
+  }
+  
+  isLiked(event: Event): boolean {
+    const userData = JSON.parse(localStorage.getItem(this.currentUser) || '{}');
+    return userData.likedPosts.includes(event.name); 
+  }
+
+  toggleLike(event: Event): void {
+    const userData = JSON.parse(localStorage.getItem(this.currentUser) || '{}');
+
+    const index = userData.likedPosts.indexOf(event.name);
+    
+    if (index === -1) {
+      userData.likedPosts.push(event.name);
+    } else {
+      userData.likedPosts.splice(index, 1);
+    }
+    localStorage.setItem(this.currentUser, JSON.stringify(userData));
+
+    console.log('Updated likedPosts:', userData.likedPosts);
   }
 }

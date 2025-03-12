@@ -91,6 +91,9 @@ h1 {
   gap: 20px;
   padding: 5px 0;
 }
+i{
+  margin-top: 15px;
+}
 
 .share-button {
   margin-top: 7px;

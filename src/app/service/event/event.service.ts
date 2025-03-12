@@ -23,4 +23,8 @@ export class EventService {
   updateEvent(event: Event){
     this.http.put(this.url + "/update-event", event);
   }
+
+  login(email: string): Observable<any>{
+    return this.http.get(this.url + `/login/${email}`);
+  }
 }
