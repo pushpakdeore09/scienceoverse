@@ -27,4 +27,8 @@ export class EventService {
   login(email: string): Observable<any>{
     return this.http.get(this.url + `/login/${email}`);
   }
+
+  updateLike(title: string, action: string): Observable<any>{
+    return this.http.put(this.url + `/update-likes/${title}/${action}`, null);
+  }
 }

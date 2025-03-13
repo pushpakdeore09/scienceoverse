@@ -123,17 +123,29 @@ export class EventComponent {
 
   toggleLike(event: Event): void {
     const userData = this.getUserData();
+    const title = event.title; 
+    const action = userData.likedPosts.indexOf(event.name) === -1 ? 'like' : 'dislike';
 
-    const index = userData.likedPosts.indexOf(event.name);
-
-    if (index === -1) {
+    if (action === 'like') {
       userData.likedPosts.push(event.name);
     } else {
-      userData.likedPosts.splice(index, 1);
+      const index = userData.likedPosts.indexOf(event.name);
+      if (index !== -1) {
+        userData.likedPosts.splice(index, 1);
+      }
     }
 
     this.updateUserData(userData);
     console.log('Updated likedPosts:', userData.likedPosts);
+
+    this.eventService.updateLike(title, action).subscribe(
+      (response) => {
+        console.log('Like count updated:', response);
+      },
+      (error) => {
+        console.error('Error updating like count:', error);
+      }
+    );
   }
 
   getUserData(): any {
