@@ -35,7 +35,18 @@ export class EventComponent {
 
   ngOnInit(): void {
     this.loadEvents();
-    this.login(this.email);
+    this.checkUserLogin();  
+  }
+
+  checkUserLogin(): void {
+    const storedUserData = Object.keys(localStorage).find(key => localStorage.getItem(key));
+
+    if (storedUserData) {
+      this.currentUser = storedUserData;
+      console.log(`User found in localStorage: ${this.currentUser}`);
+    } else {
+      this.login(this.email);
+    }
   }
 
   loadEvents(): void {
@@ -68,7 +79,7 @@ export class EventComponent {
       (event) => event.type === category
     );
     if (
-      this.currentIndex[category] + this.visibleCards <
+      this.currentIndex[category] + this.visibleCards < 
       filteredEvents.length
     ) {
       this.currentIndex[category]++;
@@ -89,14 +100,14 @@ export class EventComponent {
         console.log('Login successful:', response);
         
         const username = response.username;
-        this.currentUser = username; 
+        this.currentUser = username;
+
         const userData = {
           username: username,
           likedPosts: [] 
         };
-  
+
         localStorage.setItem(username, JSON.stringify(userData));
-  
         console.log('User data stored in localStorage:', userData);
       },
       error: (error) => {
@@ -104,24 +115,33 @@ export class EventComponent {
       }
     });
   }
-  
+
   isLiked(event: Event): boolean {
-    const userData = JSON.parse(localStorage.getItem(this.currentUser) || '{}');
+    const userData = this.getUserData();
     return userData.likedPosts.includes(event.name); 
   }
 
   toggleLike(event: Event): void {
-    const userData = JSON.parse(localStorage.getItem(this.currentUser) || '{}');
+    const userData = this.getUserData();
 
     const index = userData.likedPosts.indexOf(event.name);
-    
+
     if (index === -1) {
       userData.likedPosts.push(event.name);
     } else {
       userData.likedPosts.splice(index, 1);
     }
-    localStorage.setItem(this.currentUser, JSON.stringify(userData));
 
+    this.updateUserData(userData);
     console.log('Updated likedPosts:', userData.likedPosts);
+  }
+
+  getUserData(): any {
+    const userData = JSON.parse(localStorage.getItem(this.currentUser) || '{}');
+    return userData;
+  }
+
+  updateUserData(userData: any): void {
+    localStorage.setItem(this.currentUser, JSON.stringify(userData));
   }
 }
