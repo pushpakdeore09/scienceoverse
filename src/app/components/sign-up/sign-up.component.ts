@@ -125,7 +125,7 @@ export class SignUpComponent implements AfterViewInit {
     body.set('code', code);
     body.set('redirect_uri', 'http://localhost:4200/signup'); 
     body.set('client_id', this.client_id);
-    body.set('client_secret', 'WPL_AP1.EpGl8II17kuIcieG.6EKiWA=='); 
+    body.set('client_secret', ''); 
 
     this.http
       .post(tokenUrl, body.toString(), {
@@ -145,7 +145,6 @@ export class SignUpComponent implements AfterViewInit {
       );
   }
 
-  // Fetch LinkedIn user profile after receiving the access token
   getLinkedInUserProfile(accessToken: string) {
     const profileUrl = 'https://api.linkedin.com/v2/userinfo';
     const headers = new HttpHeaders({
