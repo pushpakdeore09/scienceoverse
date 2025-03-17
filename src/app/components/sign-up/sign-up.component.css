@@ -1,0 +1,361 @@
+#fusernamediv{
+    position: absolute;
+    left: 16%;
+   width: 30%;
+   top: 15%;
+}
+#lusernamediv{
+  position: absolute;
+  left: 64%;
+ width: 30%;
+ top: 15%;
+}
+input:focus{
+   color: #00e9fe;
+   border: 2px solid #00e9fe;
+}
+input{
+   color: #00e9fe;
+}
+.radio-group{
+  color: cyan;
+  margin-right: 10%;
+  margin-top: 5%;
+}
+#fusername{
+   background: transparent;
+ font-weight: bold;
+ font-family: sans-serif;
+}
+#lusername{
+  background: transparent;
+font-weight: bold;
+font-family: sans-serif;
+}
+#password{
+   background: transparent;
+   font-weight: bold;
+   font-family: sans-serif;
+}
+#cpassword{
+  background: transparent;
+  font-weight: bold;
+  font-family:sans-serif;
+}
+#areyou{
+  background: transparent;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+#email{
+   background: transparent;
+   font-weight: bold;
+   font-family: sans-serif;
+}
+#passworddiv{
+   position: absolute;
+   left: 40%;
+   width: 30%;
+   top: 39%;
+   /* top: 55%; */
+}
+#cpassworddiv{
+  position: absolute;
+  left: 40%;
+  width: 30%;
+  /* top: 75%; */
+  top: 51%;
+}
+#areyoudiv{
+  position: absolute;
+  left: 40%;
+  width: 30%;
+  top: 62%;
+}
+#sociallogindiv{
+  position: absolute;
+  left: 40%;
+  width: 30%;
+  top: 75%;
+}
+#emaildiv{
+   position: absolute;
+   left: 40%;
+   width: 30%;
+   top: 27%;
+}
+#fusernamelabel{
+ position: absolute;
+ left: -30%;
+ top: 8%;
+ background: linear-gradient(to right,#00e9fe, rgb(169, 245, 253),#00e9fe);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ color: transparent;
+ font-weight: bold;
+ font-family: 'Handelson_Five', sans-serif;
+}
+#lusernamelabel{
+  position: absolute;
+  left: -30%;
+  top: 8%;
+  background: linear-gradient(to right,#00e9fe, rgb(169, 245, 253),#00e9fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-family: 'Handelson_Five', sans-serif;
+ }
+#emaillabel{
+   position: absolute;
+   left: -30%;
+   top: 28%;
+   background: linear-gradient(to right,#00e9fe, rgb(169, 245, 253),#00e9fe);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-clip: text;
+   color: transparent;
+   font-weight: bold;
+   font-family: 'Handelson_Five', sans-serif;
+  }
+#passwordlabel{
+   position: absolute;
+   left: -30%;
+   top: 18%;
+   background: linear-gradient(to right,#00e9fe, rgb(169, 245, 253),#00e9fe);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ color: transparent;
+ font-weight: bold;
+ font-family: 'Handelson_Five', sans-serif;
+ }
+ #cpasswordlabel{
+  position: absolute;
+  left: -30%;
+  top: 28%;
+  background: linear-gradient(to right,#00e9fe, rgb(169, 245, 253),#00e9fe);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+color: transparent;
+font-weight: bold;
+font-family: 'Handelson_Five', sans-serif;
+}
+#areyoulabel{
+  position: absolute;
+  left: -30%;
+  top: 48%;
+  background: linear-gradient(to right,#00e9fe, rgb(169, 245, 253),#00e9fe);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+color: transparent;
+font-weight: bold;
+font-family: 'Handelson_Five', sans-serif;
+}
+ .signup-modal {
+   background: white;
+   padding: 20px;
+   border-radius: 8px;
+   width: 100%;
+   height: auto;
+   z-index: 1001;
+ }
+#submitbtn{
+   position: absolute;
+    left: 50%;
+   margin-bottom: 10%;
+   top: 87%;
+   background: transparent;
+   border: 2px solid #00e9fe;
+   color: linear-gradient(to right,#00e9fe, rgb(169, 245, 253),#00e9fe);
+   font-weight: bold;
+   font-family: 'Handelson_Five', sans-serif;
+ border-radius: 8px;
+}
+#alertmessage{
+  position: absolute;
+    top: 95%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#alertm{
+  color: #fee000;
+  font-weight: bold;
+  font-family: 'Handelson_Five', sans-serif;
+  text-align: center; 
+  background: transparent;
+  white-space: nowrap;
+  display: inline-block;
+  width: 100%;
+  justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+}
+#googlebtn{
+  background: transparent;
+   border: 2px solid #00e9fe;
+   color: linear-gradient(to right,#00e9fe, rgb(169, 245, 253),#00e9fe);
+   font-weight: bold;
+   font-family: 'Handelson_Five', sans-serif;
+ border-radius: 8px;
+ position: absolute;
+  left: -5%;
+  color: white;
+}
+#linkedinbtn{
+  background: transparent;
+   border: 2px solid #00e9fe;
+   color: linear-gradient(to right,#00e9fe, rgb(169, 245, 253),#00e9fe);
+   font-weight: bold;
+   font-family: 'Handelson_Five', sans-serif;
+ border-radius: 8px;
+ position: absolute;
+  left: 56%;
+  color: white;
+}
+#close-img{
+  height: 5vh;
+  left: 90%;
+  top: 5%;
+  position: absolute;
+  z-index: 1001;
+  border-radius: 65%;
+  cursor: pointer;
+}
+
+@media(max-width:992px) and (min-width: 651px){
+   #fusernamelabel{
+     font-size: 0.9rem;
+     /* left: -45%; */
+   }
+   #lusernamelabel{
+    font-size: 0.9rem;
+    /* left: -45%; */
+  }
+   .radio-group{
+    font-size: 0.9rem;
+   }
+   #passwordlabel{
+     font-size: 0.9rem;
+     left: -45%;
+   }
+   #emaillabel{
+      font-size: 0.9rem;
+      left: -45%;
+    }
+    #cpasswordlabel{
+      font-size: 0.9rem;
+      left: -45%;
+    }
+    #areyoulabel{
+      font-size: 0.9rem;
+      left: -45%;
+    }
+   #fusername{
+     font-size: 0.9rem;
+   }
+   #lusername{
+    font-size: 0.9rem;
+  }
+   #password{
+     font-size: 0.9rem;
+   }
+   #cpassword{
+    font-size: 0.9rem;
+  }
+  #areyou{
+    font-size: 0.9rem;
+  }
+   #email{
+      font-size: 0.9rem;
+    }
+    #googlebtn{
+      font-size: 0.9rem;
+      /* left: 42%; */
+      left: -50%;
+    }
+    #linkedinbtn{
+      font-size: 0.9rem;
+      /* left: 42%; */
+      left: 38%;
+    }
+   #submitbtn{
+     font-size: 0.9rem;
+     left: 42%;
+   }
+ }
+ @media(max-width:650px){
+  #close-img{
+    height: 3vh;
+  }
+   #fusernamelabel{
+     font-size: 0.5rem;
+     left: -45%;
+    top: 25%;
+   }
+   #lusernamelabel{
+    font-size: 0.5rem;
+    left: -40%;
+    top: 25%;
+  }
+   .radio-group{
+    font-size: 0.5rem;
+   }
+   #passwordlabel{
+     font-size: 0.5rem;
+     left: -60%;
+   }
+   #cpasswordlabel{
+    font-size: 0.5rem;
+    left: -60%;
+  }
+   #emaillabel{
+      font-size: 0.5rem;
+      left: -60%;
+    }
+    #areyoulabel{
+      font-size: 0.5rem;
+      left: -60%;
+    }
+   #fusername{
+     font-size: 0.5rem;
+   }
+   #lusername{
+    font-size: 0.5rem;
+  }
+   #password{
+     font-size: 0.5rem;
+   }
+   #cpassword{
+    font-size: 0.5rem;
+  }
+  #areyou{
+    font-size: 0.5rem;
+  }
+   #email{
+      font-size: 0.5rem;
+    }
+    #sociallogindiv{
+      top: 131%;
+      left: 45%;
+    }
+    #googlebtn{
+      font-size: 0.5rem;
+      left: -65%;
+    }
+    #linkedinbtn{
+      font-size: 0.5rem;
+      /* left: 55%; */
+      left: 19%;
+    }
+   #submitbtn{
+     font-size: 0.5rem;
+     left: 42%;
+     top: 140%;
+   }
+ }

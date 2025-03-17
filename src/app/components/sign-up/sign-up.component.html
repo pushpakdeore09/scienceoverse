@@ -1,0 +1,167 @@
+<form
+  style="
+    background-color: #70707000;
+    backdrop-filter: blur(5px);
+    height: 100vh;
+    position: sticky;
+    z-index: 1005;
+  "
+  #SignupForm="ngForm"
+>
+  <button (click)="closeSignup()">
+    <img src="/Resources/Images/close.png" id="close-img" />
+  </button>
+  <div class="form-group" id="fusernamediv">
+    <label for="fusername" id="fusernamelabel">first Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="fusername"
+      name="fusername"
+      #fusernameInput
+      placeholder="Enter first name"
+      ngModel
+      pattern="^[a-zA-Z]*$"
+      required
+      #fusername="ngModel"
+    />
+  </div>
+  <div class="form-group" id="lusernamediv">
+    <label for="lusername" id="lusernamelabel">Last Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="lusername"
+      id="lusername"
+      #lusernameInput
+      placeholder="Enter last name"
+      ngModel
+      pattern="^[a-zA-Z]*$"
+      required
+      #lusername="ngModel"
+    />
+  </div>
+  <div class="form-group" id="passworddiv">
+    <label for="password" id="passwordlabel">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      #passwordInput
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Password"
+      ngModel
+      pattern="^[a-zA-Z0-9@]{8,12}$"
+      required
+      #password="ngModel"
+    />
+  </div>
+  <div class="form-group" id="cpassworddiv">
+    <label for="cpassword" id="cpasswordlabel">Confirm Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="cpassword"
+      name="cpassword"
+      placeholder="Password"
+      ngModel
+      pattern="^[a-zA-Z0-9@]{8,12}$"
+      required
+      #cpassword="ngModel"
+    />
+  </div>
+  <div class="form-group" id="emaildiv">
+    <label for="email" id="emaillabel">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      #emailInput
+      placeholder="Enter email id"
+      name="email"
+      ngModel
+      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+      required
+      #email="ngModel"
+    />
+  </div>
+  <div class="form-group" id="areyoudiv">
+    <label for="areyou" id="areyoulabel">Are you ?</label>
+    <label class="radio-group">
+      <input
+        type="radio"
+        name="usertype"
+        value="Student"
+        [checked]="selectedtype === 'Student'"
+        (change)="onSelectType($event)"
+      />
+      Student
+    </label>
+    <label class="radio-group">
+      <input
+        type="radio"
+        name="usertype"
+        value="Professional"
+        [checked]="selectedtype === 'Professional'"
+        (change)="onSelectType($event)"
+      />
+      Professional
+    </label>
+    <label class="radio-group">
+      <input
+        type="radio"
+        name="usertype"
+        value="Others"
+        [checked]="selectedtype === 'Others'"
+        (change)="onSelectType($event)"
+      />
+      Others
+    </label>
+  </div>
+  <div id="sociallogindiv">
+    <button (click)="signInWithGoogle()" type="button" class="btn btn-primary" id="googlebtn" >
+      Login with Google
+    </button>
+    <button (click)="signinWithLinkedin()" type="button" class="btn btn-primary" id="linkedinbtn">
+      Login with LinkedIn
+    </button>
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    id="submitbtn"
+    (click)="Submit()"
+    [disabled]="SignupForm.invalid || cpassword.value != password.value"
+  >
+    Submit
+  </button>
+  <div id="alertmessage">
+    <label id="alertm">
+      <span *ngIf="fusername.invalid && fusername.touched">
+        Firstname should be in alphabets.
+      </span>
+      <span *ngIf="lusername.invalid && lusername.touched">
+        Lastname should be in alphabets.
+      </span>
+      <span *ngIf="password.invalid && password.touched">
+        Password should be in alphabets, digits, and &#64;,Excat 8-12 in length.
+      </span>
+      <span *ngIf="cpassword.invalid && cpassword.touched">
+        Password should be in alphabets, digits, and &#64;Excat 8-12 in length.
+      </span>
+      <span *ngIf="cpassword.value != password.value">
+        Password mismatch.
+      </span>
+      <span *ngIf="email.invalid && email.touched">
+        Provide correct email.
+      </span>
+      <span *ngIf="SignupMessageSuccess">
+        Signup successful. Username is {{ username }}
+      </span>
+      <span *ngIf="SignupMessageInvalid">
+        Please use another username or email.
+      </span>
+    </label>
+  </div>
+</form>
